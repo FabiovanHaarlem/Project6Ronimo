@@ -320,7 +320,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 720335731}
+      - m_Target: {fileID: 720335730}
         m_MethodName: SpawnUnit
         m_Mode: 5
         m_Arguments:
@@ -738,7 +738,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 720335731}
+      - m_Target: {fileID: 720335730}
         m_MethodName: SpawnUnit
         m_Mode: 5
         m_Arguments:
@@ -860,7 +860,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 720335731}
+      - m_Target: {fileID: 0}
         m_MethodName: 
         m_Mode: 1
         m_Arguments:
@@ -1007,9 +1007,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 720335728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70bde95fb29bdb7448408f5cf147c922, type: 3}
+  m_Script: {fileID: 11500000, guid: e1ad736714e5d0e4da16fc4105382191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_PlayerBasePosition: {x: 0, y: 0, z: 0}
 --- !u!114 &720335730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1018,9 +1019,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 720335728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a8ca101804fa2c4bbd1107f1c105385, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d1999a48f877fc42a39fa5d5e8e713e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SelectableSymbols: {fileID: 1907408918}
+  m_UpradesGroup: {fileID: 1620220166}
+  m_Canvas: {fileID: 890902206}
+  m_UnitCosts: {fileID: 11400000, guid: 8c681cd1863afbe48a2b60a34ea9f51c, type: 2}
+  m_PlayerResources: {fileID: 720335732}
 --- !u!114 &720335731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1029,7 +1035,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 720335728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d42b60705c79c14d8cf56714b0af9f9, type: 3}
+  m_Script: {fileID: 11500000, guid: c1220ddeff3a8cc43a191ac09e32f99c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &720335732
@@ -1040,7 +1046,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 720335728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b5ce7116c34dc841b3b67d2f6a47651, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e099473ea28f1049b5b428b5d1b2b49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &720335733
@@ -1132,7 +1138,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 720335731}
+      - m_Target: {fileID: 720335730}
         m_MethodName: SpawnUnit
         m_Mode: 5
         m_Arguments:
@@ -1254,7 +1260,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 720335731}
+      - m_Target: {fileID: 0}
         m_MethodName: Upgrade
         m_Mode: 5
         m_Arguments:
@@ -1692,7 +1698,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 720335731}
+      - m_Target: {fileID: 0}
         m_MethodName: Upgrade
         m_Mode: 5
         m_Arguments:
@@ -2085,7 +2091,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 720335731}
+      - m_Target: {fileID: 720335730}
         m_MethodName: SpawnUnit
         m_Mode: 5
         m_Arguments:
@@ -2281,7 +2287,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 720335731}
+      - m_Target: {fileID: 720335730}
         m_MethodName: SpawnUnit
         m_Mode: 5
         m_Arguments:
@@ -2452,7 +2458,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 720335731}
+      - m_Target: {fileID: 0}
         m_MethodName: 
         m_Mode: 1
         m_Arguments:
@@ -2574,7 +2580,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 720335731}
+      - m_Target: {fileID: 720335730}
         m_MethodName: OpenUpgradePanel
         m_Mode: 1
         m_Arguments:
@@ -2696,7 +2702,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 720335731}
+      - m_Target: {fileID: 0}
         m_MethodName: Upgrade
         m_Mode: 5
         m_Arguments:
