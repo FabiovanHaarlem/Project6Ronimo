@@ -70,23 +70,19 @@ public class UnitEditor : Editor
 
         EditorUtility.SetDirty(target);
 
+        //Maak het ook zo dat ze animaties kunnen toevoegen.
+
         if (GUILayout.Button("Generate Unit"))
         {
             GameObject newunit = new GameObject();
             newunit.AddComponent<UnitStats>();
             newunit.AddComponent<SpriteRenderer>();
 
-            newunit.GetComponent<UnitStats>().SetUnit((UnitStats.UnitType)m_unittypechoice);
-            newunit.GetComponent<UnitStats>().SetRange((UnitStats.UnitRange)m_unitrangechoice);
-            newunit.GetComponent<UnitStats>().SetDamage(m_damageamount);
-            newunit.GetComponent<UnitStats>().SetHealth(m_healthamount);
-            newunit.GetComponent<UnitStats>().SetMovespeed(m_movespeed);
-            newunit.GetComponent<UnitStats>().SetGoldCost(m_goldamount);
-            newunit.GetComponent<SpriteRenderer>().sprite = m_unitsprite;
+            newunit.GetComponent<UnitStats>().Initialize((UnitStats.UnitRange)m_unitrangechoice, (UnitStats.UnitType)m_unittypechoice, m_healthamount, m_damageamount, m_movespeed, m_goldamount, m_unitsprite);
 
             newunit.name = m_prefabname;
 
-            PrefabUtility.CreatePrefab("Assets/Resources/Prefabs/UnitPrefabs/" + m_prefabname + ".prefab", newunit);
+            PrefabUtility.CreatePrefab("Assets/Resources/Prefabs/" + m_prefabname + ".prefab", newunit, ReplacePrefabOptions.ConnectToPrefab);
         }
     }
 
