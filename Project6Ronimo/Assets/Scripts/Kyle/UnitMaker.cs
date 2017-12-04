@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class UnitMaker : MonoBehaviour
 {
-    string m_unitchoice;
-    string m_unittype;
-    int m_health;
-    int m_damage;
-    int m_movespeed;
-    int m_goldcost;
+    [HideInInspector] public string m_unitchoice;
+    [HideInInspector] public string m_unittype;
+    [HideInInspector] public int m_health;
+    [HideInInspector] public int m_damage;
+    [HideInInspector] public int m_movespeed;
+    [HideInInspector] public int m_goldcost;
 
     public void SetUnitChoice(string choice)
     {

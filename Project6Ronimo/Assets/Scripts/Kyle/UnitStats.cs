@@ -19,68 +19,54 @@ public class UnitStats : MonoBehaviour
         //SpecialUnit,
     };
 
-    private UnitRange m_unitrange;
-    private UnitType m_unittype;
-    int m_health;
-    int m_damage;
-    float m_movespeed;
-    int m_goldcost;
+    /*
+    [HideInInspector]public UnitRange m_unitrange;
+    [HideInInspector]public UnitType m_unittype;
+    [HideInInspector]public int m_health;
+    [HideInInspector]public int m_damage;
+    [HideInInspector]public float m_movespeed;
+    [HideInInspector]public int m_goldcost;
+    */
 
-    public void SetRange(UnitRange range)
+    public UnitRange m_unitrange;
+    public UnitType m_unittype;
+    public int m_health;
+    public int m_damage;
+    public float m_movespeed;
+    public int m_goldcost;
+
+    public void Initialize(UnitRange unitrange, UnitType unittype, int healthamount, int damageamount, float movespeed, int goldcost, Sprite unitsprite)
     {
-        m_unitrange = range;
+        m_unitrange = unitrange;
+        m_unittype = unittype;
+        m_health = healthamount;
+        m_damage = damageamount;
+        m_movespeed = movespeed;
+        m_goldcost = goldcost;
+
+        GetComponent<SpriteRenderer>().sprite = unitsprite;
     }
 
     public UnitRange GetUnitRange()
     {
         return m_unitrange;
     }
-
-    public void SetUnit(UnitType type)
-    {
-        m_unittype = type;
-    }
-
     public UnitType GetUnitType()
     {
         return m_unittype;
     }
-
-    public void SetHealth(int amount)
-    {
-        m_health = amount;
-    }
-
     public int GetUnitHealth()
     {
         return m_health;
     }
-
-    public void SetDamage(int amount)
-    {
-        m_damage = amount;
-    }
-
     public int GetUnitDamage()
     {
         return m_damage;
     }
-
-    public void SetMovespeed(float amount)
-    {
-        m_movespeed = amount;
-    }
-
     public float GetMovespeed()
     {
         return m_movespeed;
     }
-
-    public void SetGoldCost(int amount)
-    {
-        m_goldcost = amount;
-    }
-
     public int GetGoldCost()
     {
         return m_goldcost;
