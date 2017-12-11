@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class UnitStats : MonoBehaviour
 {
+    public enum Faction
+    {
+        Yagra,
+        Selios,
+        Bakasu
+    };
+
     public enum UnitRange
     {
         Melee,
@@ -16,7 +23,7 @@ public class UnitStats : MonoBehaviour
         SwordMaster,
         Spellcaster,
         Archer,
-        //SpecialUnit,
+        SpecialUnit,
     };
 
     /*
@@ -28,25 +35,33 @@ public class UnitStats : MonoBehaviour
     [HideInInspector]public int m_goldcost;
     */
 
+    public Faction m_faction;
     public UnitRange m_unitrange;
     public UnitType m_unittype;
     public int m_health;
     public int m_damage;
     public float m_movespeed;
     public int m_goldcost;
+    public RuntimeAnimatorController m_animator;
 
-    public void Initialize(UnitRange unitrange, UnitType unittype, int healthamount, int damageamount, float movespeed, int goldcost, Sprite unitsprite)
+    public void Initialize(Faction faction, UnitRange unitrange, UnitType unittype, int healthamount, int damageamount, float movespeed, int goldcost, RuntimeAnimatorController animator, Sprite unitsprite)
     {
+        m_faction = faction;
         m_unitrange = unitrange;
         m_unittype = unittype;
         m_health = healthamount;
         m_damage = damageamount;
         m_movespeed = movespeed;
         m_goldcost = goldcost;
+        m_animator = animator;
 
         GetComponent<SpriteRenderer>().sprite = unitsprite;
     }
 
+    public Faction GetFaction()
+    {
+        return m_faction;
+    }
     public UnitRange GetUnitRange()
     {
         return m_unitrange;
@@ -70,5 +85,9 @@ public class UnitStats : MonoBehaviour
     public int GetGoldCost()
     {
         return m_goldcost;
+    }
+    public RuntimeAnimatorController GetAnimator()
+    {
+        return m_animator;
     }
 }
