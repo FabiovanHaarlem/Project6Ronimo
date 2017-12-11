@@ -9,6 +9,8 @@ public class TowerAsset : ScriptableObject
     private float m_attackRadius, m_cooldown;
     [SerializeField]
     private int m_health;
+    [SerializeField]
+    private GameObject m_projectile;
 
     public float AttackRadius
     {
@@ -21,5 +23,9 @@ public class TowerAsset : ScriptableObject
     public int Heath
     {
         get { return m_health; }
+    }
+    public GameObject projectile
+    {
+        get { return m_projectile; }
     }
 }
