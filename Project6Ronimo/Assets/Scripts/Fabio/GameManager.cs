@@ -11,7 +11,9 @@ public class GameManager : MonoBehaviour
 	void Start ()
     {
         m_PlayerFaction = PlayerFactionEnum.Yagra;
-	}
+        m_SpellPool = GameObject.Find("_System").GetComponent<SpellPool>();
+        m_SpellPool.SetSpells(m_PlayerFaction);
+    }
 
     public PlayerFactionEnum GetPlayersFaction()
     {

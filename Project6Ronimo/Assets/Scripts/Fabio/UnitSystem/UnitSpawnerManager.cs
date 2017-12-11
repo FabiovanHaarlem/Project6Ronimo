@@ -6,6 +6,8 @@ public class UnitSpawnerManager : MonoBehaviour
 {
     [SerializeField]
     private Vector3 m_PlayerBasePosition;
+    [SerializeField]
+    private Vector3 m_AIBasePosition;
 
     public void SpawnUnit(GameObject unit)
     {
