@@ -9,61 +9,63 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1406934149149132}
+  m_RootGameObject: {fileID: 1945510820850940}
   m_IsPrefabParent: 1
---- !u!1 &1406934149149132
+--- !u!1 &1945510820850940
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4750515900811840}
-  - component: {fileID: 114012480009757228}
-  - component: {fileID: 212533864159645372}
+  - component: {fileID: 4227106407340502}
+  - component: {fileID: 114506459508161930}
+  - component: {fileID: 212536212634823868}
   m_Layer: 0
-  m_Name: Gurio
+  m_Name: Saaiio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4750515900811840
+--- !u!4 &4227106407340502
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1406934149149132}
+  m_GameObject: {fileID: 1945510820850940}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.982, y: 0.902, z: 0}
-  m_LocalScale: {x: 0.19374847, y: 0.19374847, z: 0.19374847}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114012480009757228
+--- !u!114 &114506459508161930
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1406934149149132}
+  m_GameObject: {fileID: 1945510820850940}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65731038de37bc7428ade828c5619eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_unitrange: 0
-  m_unittype: 0
-  m_health: 240
-  m_damage: 140
-  m_movespeed: 2
-  m_goldcost: 50
---- !u!212 &212533864159645372
+  m_faction: 1
+  m_unitrange: 1
+  m_unittype: 2
+  m_health: 250
+  m_damage: 100
+  m_movespeed: 2.6
+  m_goldcost: 426
+  m_animator: {fileID: 9100000, guid: 9cadaf4de5823d54aa7ef961c470a4d0, type: 2}
+--- !u!212 &212536212634823868
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1406934149149132}
+  m_GameObject: {fileID: 1945510820850940}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0

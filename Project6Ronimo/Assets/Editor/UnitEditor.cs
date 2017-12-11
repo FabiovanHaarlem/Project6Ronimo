@@ -6,24 +6,23 @@ using UnityEngine;
 [CustomEditor(typeof(UnitMaker))]
 public class UnitEditor : Editor
 {
-    //Melee = 0, Ranged = 1;
-    //string[] m_unitrange = new string[] { "Melee", "Ranged" };
-    //string[] m_meleetypes = new string[] { "Collecter", "Swordmaster" };
-    //string[] m_rangedtypes = new string[] { "Spellcaster", "Archer" };
-
-    string[] m_unitypes = new string[] { "Collector", "Swordmaster", "Spellcaster", "Archer" };
+    string[] m_factions = new string[] { "Yagra", "Selios", "Bakasu" };
+    string[] m_unitypes = new string[] { "Collector", "Swordmaster", "Spellcaster", "Archer", "Special Unit" };
     string[] m_rangetype = new string[] { "Melee", "Ranged" };
 
     int m_healthamount;
     int m_damageamount;
     float m_movespeed;
     int m_goldamount;
+    RuntimeAnimatorController m_animator;
 
     string m_prefabname = "";
 
-    //0 = collector, 1 = swordmaster, 2 = spellcaster, 3 = archer
+    //0 = Yagra, 1 = Selios, 2 = Bakasu
+    int m_factionchoice = 0;
+    //0 = Collector, 1 = Swordmaster, 2 = Spellcaster, 3 = Archer
     int m_unittypechoice = 0;
-    //0 = melee, 1 = ranged
+    //0 = Melee, 1 = Ranged
     int m_unitrangechoice = 0;
 
     UnitMaker m_unitscript;
@@ -45,6 +44,9 @@ public class UnitEditor : Editor
         EditorGUILayout.LabelField("Unit Sprite");
         m_unitsprite = (Sprite)EditorGUILayout.ObjectField(m_unitsprite, typeof(Sprite), false);
 
+        EditorGUILayout.LabelField("Faction Choice");
+        m_factionchoice = EditorGUILayout.Popup(m_factionchoice, m_factions);
+
         EditorGUILayout.LabelField("Unit Type");
         m_unittypechoice = EditorGUILayout.Popup(m_unittypechoice, m_unitypes);
 
@@ -65,6 +67,9 @@ public class UnitEditor : Editor
         EditorGUILayout.LabelField("Amount Of Gold");
         m_goldamount = EditorGUILayout.IntSlider(m_goldamount, 0, 2000);
 
+        EditorGUILayout.LabelField("Unit Animator");
+        m_animator = (RuntimeAnimatorController)EditorGUILayout.ObjectField(m_animator, typeof(RuntimeAnimatorController), false);
+
         EditorGUILayout.LabelField("Prefab Name");
         m_prefabname = EditorGUILayout.TextField(m_prefabname);
 
@@ -78,11 +83,27 @@ public class UnitEditor : Editor
             newunit.AddComponent<UnitStats>();
             newunit.AddComponent<SpriteRenderer>();
 
-            newunit.GetComponent<UnitStats>().Initialize((UnitStats.UnitRange)m_unitrangechoice, (UnitStats.UnitType)m_unittypechoice, m_healthamount, m_damageamount, m_movespeed, m_goldamount, m_unitsprite);
+            newunit.GetComponent<UnitStats>().Initialize((UnitStats.Faction)m_factionchoice, (UnitStats.UnitRange)m_unitrangechoice, (UnitStats.UnitType)m_unittypechoice, m_healthamount, m_damageamount, m_movespeed, m_goldamount, m_animator , m_unitsprite);
 
             newunit.name = m_prefabname;
+            
+            switch(m_factionchoice)
+            {
+                //Yagra
+                case 0:
+                    PrefabUtility.CreatePrefab("Assets/Resources/Prefabs/Yagra/" + m_prefabname + ".prefab", newunit, ReplacePrefabOptions.ConnectToPrefab);
+                    break;
 
-            PrefabUtility.CreatePrefab("Assets/Resources/Prefabs/" + m_prefabname + ".prefab", newunit, ReplacePrefabOptions.ConnectToPrefab);
+                //Selios
+                case 1:
+                    PrefabUtility.CreatePrefab("Assets/Resources/Prefabs/Selios/" + m_prefabname + ".prefab", newunit, ReplacePrefabOptions.ConnectToPrefab);
+                    break;
+
+                //Bakasu
+                case 2:
+                    PrefabUtility.CreatePrefab("Assets/Resources/Prefabs/Bakasu/" + m_prefabname + ".prefab", newunit, ReplacePrefabOptions.ConnectToPrefab);
+                    break;
+            }
         }
     }
 
