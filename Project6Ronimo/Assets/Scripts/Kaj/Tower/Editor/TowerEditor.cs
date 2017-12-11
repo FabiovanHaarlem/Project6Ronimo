@@ -11,6 +11,6 @@ public class TowerEditor : Editor
         Tower script = (Tower)target;
 
         Handles.color = new Color(1f, 0f, 0f, .2f);
-        Handles.SphereHandleCap(0, script.transform.position, script.transform.rotation, script.TowerAsset.AttackRadius, EventType.Repaint);
+        Handles.SphereHandleCap(0, script.transform.position, script.transform.rotation, script.TowerAsset.AttackRadius * 2, EventType.Repaint);
     }
 }

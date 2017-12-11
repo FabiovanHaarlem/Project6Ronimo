@@ -13,4 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_attackRadius: 5
   m_cooldown: 1
-  m_health: 0
+  m_health: 1
+  m_projectile: {fileID: 1928039272578432, guid: bf7f0f18cd06a374d8b3791d9c2be81f,
+    type: 2}

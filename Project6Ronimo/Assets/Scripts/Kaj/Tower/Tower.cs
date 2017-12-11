@@ -7,9 +7,14 @@ public class Tower : MonoBehaviour
     #region Variable initalization
     [SerializeField]
     private TowerAsset m_towerAsset;
+    private GameObject m_projectile, m_currentTarget;
     private float m_attackRadius; //The radius in which a enemy has to be before the tower can shoot at it
     private float m_cooldown; //The attack cooldown, in seconds
     private int m_health;
+    private Vector3 m_aimDirection;
+
+    [SerializeField]
+    private List<GameObject> m_enemys;
 
     private ITowerState m_currentState; // Holds the current state
     #endregion
@@ -21,21 +26,28 @@ public class Tower : MonoBehaviour
         m_cooldown = m_towerAsset.Cooldown;
         m_health = m_towerAsset.Heath;
         m_currentState = new TowerStateAttack(this);
+        m_projectile = m_towerAsset.projectile;
     }
 
-    private void Update()  
+    private void Update()
     {
         m_currentState.Update(); // Updates the current state
 
         // Update things that always need to be updated
-        if (m_health > 0)
+        if (m_health < 0)
             Destroy();
+
+        transform.LookAt(m_currentTarget.transform);
     }
     #endregion
 
     public void Shoot()
     {
+        Vector3 normal = Vector3.Normalize(m_currentTarget.transform.position - transform.position);
+
         Debug.Log("Piew!");
+        GameObject bullet = Instantiate(m_projectile);
+        bullet.GetComponent<Rigidbody>().AddForce(normal * 900);
     }
 
     public void SwitchState(ITowerState state) // Switch the state of the tower, give new class of the state
@@ -52,7 +64,8 @@ public class Tower : MonoBehaviour
 
     public void Destroy()
     {
-        Destroy(gameObject);
+        Debug.Log("Ik ben nu kapot");
+        //Destroy(gameObject);
     }
 
     #region Get/Set
@@ -65,6 +78,21 @@ public class Tower : MonoBehaviour
     {
         get { return m_attackRadius; }
         set { m_attackRadius = value; }
+    }
+    public Vector3 AimDirection
+    {
+        get { return m_aimDirection; }
+        set { m_aimDirection = value; }
+    }
+    public GameObject CurrentTarget
+    {
+        get { return m_currentTarget; }
+        set { m_currentTarget = value; }
+    }
+    public List<GameObject> Enemys
+    {
+        get { return m_enemys; }
+        set { m_enemys = value; }       
     }
     public TowerAsset TowerAsset
     {
