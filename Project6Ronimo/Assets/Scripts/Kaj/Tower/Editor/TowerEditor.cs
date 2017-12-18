@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 
 [CustomEditor(typeof(Tower))]
+[CanEditMultipleObjects]
 public class TowerEditor : Editor
 {
     private void OnSceneGUI()
