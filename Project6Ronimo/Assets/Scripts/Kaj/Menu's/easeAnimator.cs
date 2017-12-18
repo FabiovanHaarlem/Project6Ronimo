@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class easeAnimator : MonoBehaviour
 {
-    [SerializeField]
-    private easeAsset[] m_easeAssets;
-
     public enum EasingTypes
     {
         easeInBack,
@@ -103,7 +100,6 @@ public class easeAnimator : MonoBehaviour
 
         if (m_activeRotate)
         {
-
             // Rotation timer
             if (m_timerRotate < m_durationRotate)
                 m_timerRotate += Time.deltaTime;
@@ -125,49 +121,41 @@ public class easeAnimator : MonoBehaviour
      }
     
 
-    public void Activate(int index)
+    public void Activate(easeAsset asset)
     {
-        // Nullcheck for the ease asset array
-        if(m_easeAssets.Length < index || m_easeAssets[index] == null)
+
+        // Get and update the new values from the asset
+        switch (asset.EasingMode)
         {
-            Debug.LogError("Unkown easeAsset, " + index + " is null");
-            return;
-        }
-        else
-        {
-            // Get and update the new values from the asset
-            switch (m_easeAssets[index].EasingMode)
-            {
-                // Check for the scale mode
-                case EasingModes.Scale:
-                    m_easingTypeScale = m_easeAssets[index].EasingType;
+            // Check for the scale mode
+            case EasingModes.Scale:
+                m_easingTypeScale = asset.EasingType;
 
-                    m_xScaleStart = m_easeAssets[index].XScaleStart;
-                    m_yScaleStart = m_easeAssets[index].YScaleStart;
+                m_xScaleStart = asset.XScaleStart;
+                m_yScaleStart = asset.YScaleStart;
 
-                    m_xScaleChange = m_easeAssets[index].XScaleChange;
-                    m_yScaleChange = m_easeAssets[index].YScaleChange;
+                m_xScaleChange = asset.XScaleChange;
+                m_yScaleChange = asset.YScaleChange;
 
-                    m_durationScale = m_easeAssets[index].Duration;
-                    m_timerScale = 0;
+                m_durationScale = asset.Duration;
+                m_timerScale = 0;
 
-                    m_activeScale = true;
-                    break;
+                m_activeScale = true;
+                break;
 
-                // Check for the rotation mode
-                case EasingModes.Rotation:
-                    m_easingTypeRotate = m_easeAssets[index].EasingType;
+            // Check for the rotation mode
+            case EasingModes.Rotation:
+                m_easingTypeRotate = asset.EasingType;
 
-                    m_zRotateStart = m_easeAssets[index].ZRotateStart;
+                m_zRotateStart = asset.ZRotateStart;
 
-                    m_zRotateChange = m_easeAssets[index].ZRotateChange;
+                m_zRotateChange = asset.ZRotateChange;
 
-                    m_durationRotate = m_easeAssets[index].Duration;
-                    m_timerRotate = 0;
+                m_durationRotate = asset.Duration;
+                m_timerRotate = 0;
 
-                    m_activeRotate = true;
-                    break;
-            }
+                m_activeRotate = true;
+                break;
         }
     }
 
@@ -443,5 +431,4 @@ public class easeAnimator : MonoBehaviour
                 break;
         }
     }
-
 }

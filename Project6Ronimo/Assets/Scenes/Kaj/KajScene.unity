@@ -665,10 +665,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de8128def72cdbd48ab9fdb765877488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_easeAssets:
-  - {fileID: 11400000, guid: ec064379393331a49a18ac39543097cb, type: 2}
-  - {fileID: 11400000, guid: 90e305d738c8bde43b8bf37c07f47b29, type: 2}
-  - {fileID: 11400000, guid: 0a1883ff6e486c94e98482a3cf2d5a10, type: 2}
 --- !u!114 &1899870440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -720,10 +716,11 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1899870439}
           m_MethodName: Activate
-          m_Mode: 3
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 11400000, guid: ec064379393331a49a18ac39543097cb,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: easeAsset, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -737,10 +734,11 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1899870439}
           m_MethodName: Activate
-          m_Mode: 3
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 11400000, guid: 90e305d738c8bde43b8bf37c07f47b29,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: easeAsset, Assembly-CSharp
             m_IntArgument: 1
             m_FloatArgument: 0
             m_StringArgument: 
@@ -754,10 +752,11 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1899870439}
           m_MethodName: Activate
-          m_Mode: 3
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 11400000, guid: ec064379393331a49a18ac39543097cb,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: easeAsset, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -765,10 +764,11 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 1899870439}
           m_MethodName: Activate
-          m_Mode: 3
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 11400000, guid: 0a1883ff6e486c94e98482a3cf2d5a10,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: easeAsset, Assembly-CSharp
             m_IntArgument: 2
             m_FloatArgument: 0
             m_StringArgument: 
