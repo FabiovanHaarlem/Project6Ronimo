@@ -28,6 +28,6 @@ public class SpellHolder : MonoBehaviour
 	
 	void Update ()
     {
-        m_GivenSpell.UpdateSpell();
+        //m_GivenSpell.UpdateSpell();
 	}
 }

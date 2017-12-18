@@ -20,6 +20,7 @@ public class UnitSelectManager : MonoBehaviour
     private UnitSpawnerManager m_Spawner;
 
     private bool m_UpgradeMenuOpen;
+    private bool m_SelectMenuActive;
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class UnitSelectManager : MonoBehaviour
         m_SelectableSymbols.gameObject.SetActive(false);
         m_UpgradeMenuOpen = false;
         m_UpradesGroup.SetActive(false);
+        m_SelectMenuActive = false;
     }
 
     private void Update()
@@ -54,10 +56,20 @@ public class UnitSelectManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (m_SelectMenuActive)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                DeactivateSelect();
+                m_SelectMenuActive = false;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Space))
         {
             SetUIElements();
+            m_SelectMenuActive = true;
         }
+        
     }
 
     public void SpawnUnit(string unitName)
@@ -110,6 +122,14 @@ public class UnitSelectManager : MonoBehaviour
         }
 
         return spawnUnit;
+    }
+
+    private void DeactivateSelect()
+    {
+        m_UpradesGroup.SetActive(false);
+        m_UpgradeMenuOpen = false;
+        m_SelectableSymbols.SetActive(false);
+        m_SelectMenuActive = false;
     }
 
     public void OpenUpgradePanel()

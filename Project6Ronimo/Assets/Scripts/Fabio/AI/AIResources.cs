@@ -2,30 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerResources : MonoBehaviour
+public class AIResources : MonoBehaviour
 {
     private int m_Gold;
+    public int GetGoldValue
+    { get { return m_Gold; } }
+
     private int m_ManaPool;
+    public int GetManaPoolValue
+    { get { return m_ManaPool; } }
+
     private float m_ManaRechargeSpeed;
 
-    void Start()
+    private void Start()
     {
         m_Gold = 100;
         m_ManaPool = 100;
         m_ManaRechargeSpeed = 3f;
-    }
-
-    private void Update()
-    {
-        m_ManaRechargeSpeed -= Time.deltaTime;
-
-        if (m_ManaRechargeSpeed <= 0f)
-        {
-            if (m_ManaPool >= 100)
-            {
-                RechargeMana();
-            }
-        }
     }
 
     public void AddGold(int gold)
