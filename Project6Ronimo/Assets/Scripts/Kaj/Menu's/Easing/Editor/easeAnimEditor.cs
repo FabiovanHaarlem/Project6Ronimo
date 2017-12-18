@@ -53,10 +53,10 @@ public class easeAnimEditor : Editor
             script.ZRotateStart = EditorGUILayout.FloatField(new GUIContent("ZRotate Start: ", "tooltip"), script.ZRotateStart);
             script.ZRotateChange = EditorGUILayout.FloatField(new GUIContent("ZRotate Change: ", "tooltip"), script.ZRotateChange);
 
-            if (script.ZRotateChange <= 0)
+            if (script.ZRotateChange == 0)
             {
                 GUI.contentColor = Color.magenta;
-                GUILayout.Label("Warning! Z Rotation Change is less or equal to 0!");
+                GUILayout.Label("Warning! Z Rotation Change is equal to 0!");
             }
         }
 

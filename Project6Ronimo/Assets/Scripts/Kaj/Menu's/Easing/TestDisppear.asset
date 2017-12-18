@@ -9,14 +9,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8078f489826c37a40b9e36c90b9aa15f, type: 3}
-  m_Name: TestAnimation3
+  m_Name: TestDisppear
   m_EditorClassIdentifier: 
   m_easingMode: 0
   m_easingType: 0
-  m_duration: 0
-  m_xScaleStart: 0
-  m_yScaleStart: 0
+  m_duration: 1
+  m_xScaleStart: 1
+  m_yScaleStart: 1
   m_zRotateStart: 0
-  m_xScaleChange: 0
-  m_yScaleChange: 0
+  m_xScaleChange: -1
+  m_yScaleChange: -1
   m_zRotateChange: 0

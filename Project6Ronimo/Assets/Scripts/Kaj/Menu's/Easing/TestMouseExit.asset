@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8078f489826c37a40b9e36c90b9aa15f, type: 3}
-  m_Name: TestAnimation2
+  m_Name: TestMouseExit
   m_EditorClassIdentifier: 
   m_easingMode: 0
   m_easingType: 20

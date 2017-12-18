@@ -85,6 +85,9 @@ public class easeAnimator : MonoBehaviour
     {
         if (m_activeScale)
         {
+            // Calculate and update the values
+            UpateScaleValues();
+
             // Scale timer
             if (m_timerScale < m_durationScale)
                 m_timerScale += Time.deltaTime;
@@ -93,13 +96,13 @@ public class easeAnimator : MonoBehaviour
                 m_timerScale = m_durationScale;
                 m_activeScale = false;
             }
-
-            // Calculate and update the values
-            UpateScaleValues();
         }
 
         if (m_activeRotate)
         {
+            // Calculate and update the values
+            UpateRotateValues();
+
             // Rotation timer
             if (m_timerRotate < m_durationRotate)
                 m_timerRotate += Time.deltaTime;
@@ -108,9 +111,6 @@ public class easeAnimator : MonoBehaviour
                 m_timerRotate = m_durationRotate;
                 m_activeRotate = false;
             }
-
-            // Calculate and update the values
-            UpateRotateValues();
         }
 
 
