@@ -85,35 +85,35 @@ public class UnitSelectManager : MonoBehaviour
     {
         bool spawnUnit = false;
 
-        if (unitName == "CollectorUnitTest(Clone)")
+        if (unitName == "Collector")
         {
             if (m_PlayerResources.RemoveGold(m_UnitCosts.GetCollectorCost))
             {
                 spawnUnit = true;
             }
         }
-        else if (unitName == "MeleeUnitTest(Clone)")
+        else if (unitName == "Melee")
         {
             if (m_PlayerResources.RemoveGold(m_UnitCosts.GetMeleeCost))
             {
                 spawnUnit = true;
             }
         }
-        else if (unitName == "RangedUnitTest(Clone)")
+        else if (unitName == "Ranged")
         {
             if (m_PlayerResources.RemoveGold(m_UnitCosts.GetRangedCost))
             {
                 spawnUnit = true;
             }
         }
-        else if (unitName == "SpellCasterUnitTest(Clone)")
+        else if (unitName == "Spellcaster")
         {
             if (m_PlayerResources.RemoveGold(m_UnitCosts.GetSpellcasterCost))
             {
                 spawnUnit = true;
             }
         }
-        else if (unitName == "SpecialUnitTest(Clone)")
+        else if (unitName == "Special")
         {
             if (m_PlayerResources.RemoveGold(m_UnitCosts.GetSpecialCost))
             {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AIResources : MonoBehaviour
 {
+    [SerializeField]
     private int m_Gold;
     public int GetGoldValue
     { get { return m_Gold; } }

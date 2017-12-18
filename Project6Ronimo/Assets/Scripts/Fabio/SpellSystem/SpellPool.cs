@@ -31,6 +31,8 @@ public class SpellPool : MonoBehaviour
         {
             GameObject spell = new GameObject();
             spell.AddComponent<SpellHolder>();
+            spell.gameObject.SetActive(false);
+            spell.gameObject.name = "Spell";
             m_Spells[i] = (spell.GetComponent<SpellHolder>());
         }
     }
