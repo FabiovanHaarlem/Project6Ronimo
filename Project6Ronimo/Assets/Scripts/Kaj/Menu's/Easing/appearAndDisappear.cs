@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SimpleEasing2D;
 
 [RequireComponent(typeof(easeAnimator))]
 public class appearAndDisappear : MonoBehaviour
@@ -52,6 +53,4 @@ public class appearAndDisappear : MonoBehaviour
     {
         m_disappearTimer = m_disappearDelay;
     }
-
-
 }
