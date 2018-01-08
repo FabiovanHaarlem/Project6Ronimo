@@ -168,9 +168,9 @@ namespace SimpleEasing2D
                 case EasingModes.XScale:
                     m_easingTypeXScale = asset.EasingType;
 
-                    m_yScaleStart = asset.YScaleStart;
+                    m_xScaleStart = asset.YScaleStart;
 
-                    m_yScaleChange = asset.YScaleChange;
+                    m_xScaleChange = asset.YScaleChange;
 
                     m_durationXScale = asset.Duration;
                     m_timerXScale = 0;
@@ -189,7 +189,28 @@ namespace SimpleEasing2D
                     m_durationYScale = asset.Duration;
                     m_timerYScale = 0;
 
+                    m_activeYScale = true;
+                    break;
+
+                // Check for the Xscale and Yscale mode
+                case EasingModes.XYScale:
+                    m_easingTypeXScale = asset.EasingType;
+                    m_easingTypeYScale = asset.EasingType;
+
+                    m_xScaleStart = asset.XScaleStart;
+                    m_yScaleStart = asset.XScaleStart;
+
+                    m_xScaleChange = asset.XScaleChange;
+                    m_yScaleChange = asset.XScaleChange;
+
+                    m_durationXScale = asset.Duration;
+                    m_durationYScale = asset.Duration;
+
+                    m_timerXScale = 0;
+                    m_timerYScale = 0;
+
                     m_activeXScale = true;
+                    m_activeYScale = true;
                     break;
 
                 // Check for the rotation mode

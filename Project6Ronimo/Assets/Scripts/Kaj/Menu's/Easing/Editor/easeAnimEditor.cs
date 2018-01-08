@@ -9,8 +9,6 @@ namespace SimpleEasing2D
     [CanEditMultipleObjects]
     public class easeAnimEditor : Editor
     {
-
-        float broek = 5;
         public override void OnInspectorGUI()
         {
             easeAsset script = (easeAsset)target;
@@ -55,10 +53,6 @@ namespace SimpleEasing2D
                 script.XScaleStart = EditorGUILayout.FloatField(new GUIContent("X & Y Scale Start: ", "tooltip"), script.XScaleStart);
                 script.XScaleChange = EditorGUILayout.FloatField(new GUIContent("X & Y Scale Change: ", "tooltip"), script.XScaleChange);
 
-                script.YScaleStart = script.XScaleStart;
-                script.YScaleChange = script.XScaleChange;
-
-
                 if (script.XScaleChange == 0)
                 {
                     EditorGUILayout.Space();
@@ -92,6 +86,7 @@ namespace SimpleEasing2D
             }
 
             EditorGUILayout.Space();
+            GUI.contentColor = Color.white;
 
             if (GUILayout.Button("Click here for info about all the different easing types"))
             {

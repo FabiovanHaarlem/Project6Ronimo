@@ -30,7 +30,10 @@ public class appearAndDisappear : MonoBehaviour
         {
             m_appearTimer -= Time.deltaTime;
 
-            m_animator.Activate(m_appearAnimation);
+            if (m_appearTimer <= 0)
+            {
+                m_animator.Activate(m_appearAnimation);
+            }
         }
 
         if (m_disappearTimer > 0)
