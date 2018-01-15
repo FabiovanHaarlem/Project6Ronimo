@@ -16,6 +16,7 @@ public class UnitMovement : MonoBehaviour
     {
         m_spriterend = GetComponent<SpriteRenderer>();
         m_stats = GetComponent<UnitStats>();
+        m_attack = GetComponent<UnitAttack>();
     }
 
     void Update()
@@ -23,6 +24,7 @@ public class UnitMovement : MonoBehaviour
         float step = 5f * Time.deltaTime;
 
         transform.position = Vector2.MoveTowards(transform.position, m_goal.position, step);
+
     }
             
     public void OnCollisionEnter2D(Collision2D collision)
