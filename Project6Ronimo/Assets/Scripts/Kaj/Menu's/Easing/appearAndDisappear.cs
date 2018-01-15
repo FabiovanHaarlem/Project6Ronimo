@@ -34,6 +34,11 @@ public class appearAndDisappear : MonoBehaviour
             {
                 m_animator.Activate(m_appearAnimation);
             }
+
+            if (m_appearTimer <= 0)
+            {
+                AudioManager.SFX.PlaySound(SFXManager.Sounds.ButtonEnter);
+            }
         }
 
         if (m_disappearTimer > 0)
@@ -55,5 +60,10 @@ public class appearAndDisappear : MonoBehaviour
     public void Disappear()
     {
         m_disappearTimer = m_disappearDelay;
+    }
+
+    public void PlaySound()
+    {
+        AudioManager.SFX.PlaySound(SFXManager.Sounds.ButtonSelect);
     }
 }

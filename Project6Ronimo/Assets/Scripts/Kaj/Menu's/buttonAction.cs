@@ -43,7 +43,8 @@ public class buttonAction : MonoBehaviour
 
     public void Activate()
     {
-        m_timer = 0.5f;
+        AudioManager.SFX.PlaySound(SFXManager.Sounds.MenuClick);
+        m_timer = 0.55555f;
         m_acitve = true;
     }
 }

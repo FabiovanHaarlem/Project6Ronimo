@@ -7,18 +7,9 @@ public class SFXManager : MonoBehaviour
 {
     public enum Sounds
     {
-        PlayerJump,
-        PlayerDeath,
-        GravityFlip,
-        Switch,
-        BlockBreak,
-        SecretObtained,
-        LevelEnter,
-        LevelComplete,
-        MenuEnter,
-        MenuSelect,
         MenuClick,
-        IntroPause
+        ButtonEnter,
+        ButtonSelect
     }
 
     private AudioSource[] m_audioSources;

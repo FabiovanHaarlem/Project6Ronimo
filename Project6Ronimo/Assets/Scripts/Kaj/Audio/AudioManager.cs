@@ -8,6 +8,11 @@ public class AudioManager : MonoBehaviour
     private static BGManager m_bgmManager;
     private static SFXManager m_sfxManager;
 
+    // Set de cursor omdat het kan
+    public Texture2D cursorTexture;
+    public CursorMode cursorMode = CursorMode.Auto;
+    public Vector2 hotSpot = Vector2.zero;
+
     private void Awake()
     {
         // Check if there'sn't already an instance of the audiomanager
@@ -16,7 +21,6 @@ public class AudioManager : MonoBehaviour
 
         // Make sure that the object stays when loading a new scene
         DontDestroyOnLoad(transform.gameObject);
-
     }
 
     private void OnEnable()
@@ -33,6 +37,9 @@ public class AudioManager : MonoBehaviour
             m_bgmManager = GetComponent<BGManager>();
             m_sfxManager = GetComponent<SFXManager>();
         }
+
+        // Set de cursor omdat het kan
+        Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
     }
 
     public static BGManager BGM
