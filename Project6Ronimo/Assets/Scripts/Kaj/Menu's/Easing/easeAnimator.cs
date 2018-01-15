@@ -4,8 +4,11 @@ using UnityEngine;
 
 namespace SimpleEasing2D
 {
+    [RequireComponent(typeof(RectTransform))]
     public class easeAnimator : MonoBehaviour
     {
+        private RectTransform m_rectTransform;
+
         public enum EasingTypes
         {
             easeInBack,
@@ -71,6 +74,8 @@ namespace SimpleEasing2D
 
         private void Awake()
         {
+            m_rectTransform = GetComponent<RectTransform>();
+
             m_timerXScale = 0;
             m_timerYScale = 0;
             m_timerRotate = 0;
@@ -79,16 +84,16 @@ namespace SimpleEasing2D
             m_durationYScale = 0;
             m_durationRotate = 0;
 
-            m_xScaleStart = transform.localScale.x;
-            m_yScaleStart = transform.localScale.y;
-            m_zRotateStart = transform.eulerAngles.z;
+            m_xScaleStart = m_rectTransform.rect.size.x;
+            m_yScaleStart = m_rectTransform.rect.size.y;
+            m_zRotateStart = m_rectTransform.rotation.z;
 
             m_xScaleChange = 0;
             m_yScaleChange = 0;
             m_zRotateChange = 0;
 
-            m_currentXScale = transform.localScale.x;
-            m_currentYScale = transform.localScale.y;
+            m_currentXScale = m_rectTransform.rect.size.x;
+            m_currentYScale = m_rectTransform.rect.size.y;
             m_currentZRotate = transform.eulerAngles.z;
         }
 
@@ -153,8 +158,10 @@ namespace SimpleEasing2D
 
 
             // Apply the new values
-            transform.localScale = new Vector3(m_currentXScale, m_currentYScale, transform.localScale.z);
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, m_currentZRotate);
+            m_rectTransform.localScale = new Vector3(m_currentXScale, m_currentYScale, transform.localScale.z);
+            m_rectTransform.localEulerAngles = new Vector3(0, 0, m_currentZRotate);
+
+
 
         }
 
