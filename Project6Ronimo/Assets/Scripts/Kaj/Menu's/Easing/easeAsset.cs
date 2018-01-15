@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace SimpleEasing2D
+{
 [CreateAssetMenu(menuName = "Ease Animation")]
 public class easeAsset : ScriptableObject
 {
@@ -71,4 +73,5 @@ public class easeAsset : ScriptableObject
     }
     #endregion
 
+}
 }

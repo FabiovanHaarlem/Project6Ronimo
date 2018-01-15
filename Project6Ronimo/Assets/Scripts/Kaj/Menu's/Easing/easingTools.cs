@@ -4,6 +4,8 @@
 
 using UnityEngine;
 
+namespace SimpleEasing2D
+{
 public static class Easing // ELASTIC OUT AND INOUT DONT WORK :(
 {
     public static float easeInBack(float time, float start, float change, float duration)
@@ -224,7 +226,7 @@ public static class Easing // ELASTIC OUT AND INOUT DONT WORK :(
     }
     public static float easeInOutSine(float time, float start, float change, float duration)
     {
-    return change* 0.5f * (1 - Mathf.Cos(Mathf.PI* time / duration)) + start;
+        return change * 0.5f * (1 - Mathf.Cos(Mathf.PI * time / duration)) + start;
     }
     public static float easeLiniear(float time, float start, float change, float duration)
     {
@@ -334,4 +336,5 @@ public static class Easing // ELASTIC OUT AND INOUT DONT WORK :(
     {
         return change * Mathf.Sin(time / duration * (Mathf.PI / 2)) + start;
     }
+}
 }
