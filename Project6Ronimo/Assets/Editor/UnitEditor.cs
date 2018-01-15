@@ -82,6 +82,8 @@ public class UnitEditor : Editor
             GameObject newunit = new GameObject();
             newunit.AddComponent<UnitStats>();
             newunit.AddComponent<SpriteRenderer>();
+            newunit.AddComponent<UnitAttack>();
+            newunit.AddComponent<UnitMovement>();
 
             newunit.GetComponent<UnitStats>().Initialize((UnitStats.Faction)m_factionchoice, (UnitStats.UnitRange)m_unitrangechoice, (UnitStats.UnitType)m_unittypechoice, m_healthamount, m_damageamount, m_movespeed, m_goldamount, m_animator , m_unitsprite);
 

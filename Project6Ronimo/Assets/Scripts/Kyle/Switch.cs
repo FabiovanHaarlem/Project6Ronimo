@@ -35,11 +35,11 @@ public class Switch : MonoBehaviour
             }
             else if (other.CompareTag("Player") && m_iamaplayerswitch == false)
             {
-                Debug.Log("Follow original Player chosen path");
+                other.gameObject.GetComponent<UnitMovement>().MoveTo(m_enemybase);
             }
             else if (other.CompareTag("AI") && m_iamaplayerswitch == true)
             {
-                Debug.Log("Follow original AI chosen path");
+                other.gameObject.GetComponent<UnitMovement>().MoveTo(m_playerbase);
             }
         }
         else if (m_iamgoingup == false)
@@ -54,11 +54,11 @@ public class Switch : MonoBehaviour
             }
             else if(other.CompareTag("Player") && m_iamaplayerswitch == false)
             {
-                Debug.Log("Follow original Player chosen path");
+                other.gameObject.GetComponent<UnitMovement>().MoveTo(m_enemybase);
             }
             else if(other.CompareTag("AI") && m_iamaplayerswitch == true)
             {
-                Debug.Log("Follow original AI chosen path");
+                other.gameObject.GetComponent<UnitMovement>().MoveTo(m_playerbase);
             }
         }
     }
