@@ -1185,6 +1185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2856e8f5af1cd054fa52ec5c6fe7c1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SpellsValue: {fileID: 11400000, guid: 1e49c542461ce9a4aa0a48573328de4c, type: 2}
 --- !u!114 &720335737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1935,6 +1936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b9e80fcbfb83864c94cf5311b7facdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Gold: 0
 --- !u!114 &1424375515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1947,6 +1949,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AIResources: {fileID: 1424375514}
+  m_UnitSpawner: {fileID: 720335729}
+  m_UnitSelectManager: {fileID: 720335730}
+  m_PlayerUnits: []
+  m_AIUnits: []
+  m_HighestPriority: 0
+  m_GoldPercentage: 0
+  m_DefencePercentage: 0
+  m_AttackPercentage: 0
+  m_BraveryPercentage: 0
 --- !u!4 &1424375516
 Transform:
   m_ObjectHideFlags: 0

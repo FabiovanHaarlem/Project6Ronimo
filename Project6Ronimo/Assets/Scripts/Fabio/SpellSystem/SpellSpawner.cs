@@ -12,9 +12,8 @@ public class SpellSpawner : MonoBehaviour
         spell.gameObject.SetActive(true);
         spell.gameObject.transform.position = pos;
 
-        m_TestSpell.SetActive(true);
-        m_TestSpell.transform.position = pos;
-        Debug.Log(pos);
+        //m_TestSpell.SetActive(true);
+        //m_TestSpell.transform.position = pos;
     }
 
 }

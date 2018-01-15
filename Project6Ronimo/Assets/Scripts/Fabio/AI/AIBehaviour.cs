@@ -8,6 +8,12 @@ public class AIBehaviour : MonoBehaviour
     private AIResources m_AIResources;
 
     [SerializeField]
+    private UnitSpawnerManager m_UnitSpawner;
+
+    [SerializeField]
+    private UnitSelectManager m_UnitSelectManager;
+
+    [SerializeField]
     private List<GameObject> m_PlayerUnits;
     [SerializeField]
     private List<GameObject> m_AIUnits;
@@ -39,6 +45,10 @@ public class AIBehaviour : MonoBehaviour
 
     private float m_PlusAmount;
 
+    private int m_AmountOfCollectors;
+    private int m_CollectorsLimit;
+    private float m_NewCollectorLimitTimer;
+
     private void Start()
     {
         m_PlusAmount = 2f;
@@ -52,6 +62,10 @@ public class AIBehaviour : MonoBehaviour
 
         m_BraveryValue = 5f;
         m_BraveryStandard = 100f;
+
+        m_AmountOfCollectors = 0;
+        m_CollectorsLimit = 3;
+        m_NewCollectorLimitTimer = 60f;
 
         m_PlayerUnits = new List<GameObject>();
         m_AIUnits = new List<GameObject>();
@@ -110,15 +124,93 @@ public class AIBehaviour : MonoBehaviour
             m_HighestPriority = HighestPriority.Defence;
         }
 
+        m_NewCollectorLimitTimer -= Time.deltaTime;
+
+        if (m_NewCollectorLimitTimer <= 0f)
+        {
+            m_CollectorsLimit += 1;
+            m_NewCollectorLimitTimer = 60f;
+        }
+
+        if (m_GoldPercentage <= 15f || m_GoldPercentage >= 85)
+        {
+            if (m_PlayerUnits.Count <= m_AIUnits.Count && m_AmountOfCollectors <= m_CollectorsLimit)
+            {
+                SpawnCollector();
+            }
+        }
+
+        if (m_DefencePercentage >= 40f)
+        {
+            List<string> unitsToSpawn = new List<string>();
+            
+            if (m_GoldPercentage >= 80f)
+            {
+                unitsToSpawn.Add("Melee");
+                unitsToSpawn.Add("Melee");
+                unitsToSpawn.Add("Ranged");
+            }
+            else if (m_GoldPercentage >= 50f)
+            {
+                unitsToSpawn.Add("Melee");
+                unitsToSpawn.Add("Ranged");
+            }
+            else if (m_GoldPercentage >= 30f)
+            {
+                unitsToSpawn.Add("Melee");
+            }
+
+            SpawnUnit(unitsToSpawn);
+        }
+        else if (m_AttackPercentage >= 40f)
+        {
+            List<string> unitsToSpawn = new List<string>();
+
+            if (m_GoldPercentage >= 80f)
+            {
+                unitsToSpawn.Add("Melee");
+                unitsToSpawn.Add("Melee");
+                unitsToSpawn.Add("Ranged");
+                unitsToSpawn.Add("Spellcaster");
+            }
+            else if (m_GoldPercentage >= 50f)
+            {
+                unitsToSpawn.Add("Melee");
+                unitsToSpawn.Add("Ranged");
+                unitsToSpawn.Add("Ranged");
+            }
+            else if (m_GoldPercentage >= 30f)
+            {
+                unitsToSpawn.Add("Melee");
+                unitsToSpawn.Add("Ranged");
+            }
+            else if (m_GoldPercentage >= 20f)
+            {
+                unitsToSpawn.Add("Melee");
+            }
+
+            SpawnUnit(unitsToSpawn);
+        }
     }
 
-    private void SpawnUnit(UnitStats.UnitType unit)
+    private void SpawnCollector()
     {
-        Debug.Log("Spawn Unit");
+        m_UnitSelectManager.SpawnAIUnit("Collector", m_AIResources);
+    }
+
+    private void SpawnUnit(List<string> unitsToSpawn)
+    {
+        for (int i = 0; i < unitsToSpawn.Count; i++)
+        {
+            m_UnitSelectManager.SpawnAIUnit(unitsToSpawn[i], m_AIResources);
+        }
     }
 
     private void UpdateValues()
     {
+        m_PlayerUnits = m_UnitSpawner.GetPlayerUnitsList;
+        m_AIUnits = m_UnitSpawner.GetAIUnitsList;
+
         GetResources();
         UpdateAttackValue();
         UpdateDefenceValue();

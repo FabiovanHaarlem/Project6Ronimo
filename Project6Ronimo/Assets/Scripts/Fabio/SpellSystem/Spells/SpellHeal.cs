@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BakasuSpell2 : ISpell
+public class SpellHeal : ISpell
 {
     public void ActivateSpell()
     {
 
     }
 
-    public void UpdateSpell()
+    public void UpdateSpell(Collider unit)
     {
-
+        //In class UnitStats roep aan Heal();
     }
 
     public void DeactivateSpell()

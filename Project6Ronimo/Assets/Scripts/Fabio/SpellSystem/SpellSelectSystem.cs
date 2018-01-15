@@ -37,6 +37,8 @@ public class SpellSelectSystem : MonoBehaviour
                 {
                     Vector3 selectedPosition = GetSelectedPosition();
                     m_SpellSpawner.SpawnSpell(m_CurrentSelectedSpell, selectedPosition);
+
+                    m_CurrentSelectedSpell = null;
                 }
             }
         }
