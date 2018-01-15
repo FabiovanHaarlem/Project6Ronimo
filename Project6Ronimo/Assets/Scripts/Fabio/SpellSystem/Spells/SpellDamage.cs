@@ -11,7 +11,7 @@ public class SpellDamage : ISpell
 
     public void UpdateSpell(Collider unit)
     {
-        //In class UnitStats roep aan TakeDamage();
+        unit.GetComponent<UnitStats>().TakeDamage(20);
     }
 
     public void DeactivateSpell()
