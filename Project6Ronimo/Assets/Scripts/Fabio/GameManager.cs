@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     {
         m_PlayerFaction = PlayerFactionEnum.Yagra;
         m_SpellPool = GameObject.Find("_System").GetComponent<SpellPool>();
-        m_SpellPool.SetSpells(m_PlayerFaction);
+        m_SpellPool.SetSpells();
     }
 
     public PlayerFactionEnum GetPlayersFaction()
@@ -28,6 +28,6 @@ public class GameManager : MonoBehaviour
     public void SetAllSystems()
     {
         m_SpellPool = GameObject.Find("_System").GetComponent<SpellPool>();
-        m_SpellPool.SetSpells(m_PlayerFaction);
+        m_SpellPool.SetSpells();
     }
 }

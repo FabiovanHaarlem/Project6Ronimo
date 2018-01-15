@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114300812318436102}
   - component: {fileID: 212252832126038472}
   m_Layer: 0
-  m_Name: MeleeYagra
+  m_Name: Melee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

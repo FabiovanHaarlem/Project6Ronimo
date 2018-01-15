@@ -74,48 +74,48 @@ public class UnitSelectManager : MonoBehaviour
 
     public void SpawnUnit(string unitName)
     {
-        if (CheckIfEnoughGold(unitName))
+        if (CheckIfEnoughGold(unitName, m_PlayerResources))
         {
-            GameObject unit = m_UnitPool.GetSelectedUnit(unitName);
+            GameObject unit = m_UnitPool.GetSelectedUnit(unitName, 0);
             m_Spawner.SpawnUnit(unit);
         }
     }
 
-    private bool CheckIfEnoughGold(string unitName)
+    private bool CheckIfEnoughGold(string unitName, IResources resources)
     {
         bool spawnUnit = false;
 
         if (unitName == "Collector")
         {
-            if (m_PlayerResources.RemoveGold(m_UnitCosts.GetCollectorCost))
+            if (resources.RemoveGold(m_UnitCosts.GetCollectorCost))
             {
                 spawnUnit = true;
             }
         }
         else if (unitName == "Melee")
         {
-            if (m_PlayerResources.RemoveGold(m_UnitCosts.GetMeleeCost))
+            if (resources.RemoveGold(m_UnitCosts.GetMeleeCost))
             {
                 spawnUnit = true;
             }
         }
         else if (unitName == "Ranged")
         {
-            if (m_PlayerResources.RemoveGold(m_UnitCosts.GetRangedCost))
+            if (resources.RemoveGold(m_UnitCosts.GetRangedCost))
             {
                 spawnUnit = true;
             }
         }
         else if (unitName == "Spellcaster")
         {
-            if (m_PlayerResources.RemoveGold(m_UnitCosts.GetSpellcasterCost))
+            if (resources.RemoveGold(m_UnitCosts.GetSpellcasterCost))
             {
                 spawnUnit = true;
             }
         }
         else if (unitName == "Special")
         {
-            if (m_PlayerResources.RemoveGold(m_UnitCosts.GetSpecialCost))
+            if (resources.RemoveGold(m_UnitCosts.GetSpecialCost))
             {
                 spawnUnit = true;
             }
@@ -157,5 +157,14 @@ public class UnitSelectManager : MonoBehaviour
 
         m_SelectableSymbols.transform.position = m_Canvas.gameObject.transform.TransformPoint(pos);
         m_UpradesGroup.SetActive(false);
+    }
+
+    public void SpawnAIUnit(string unitName, IResources aIResources)
+    {
+        if (CheckIfEnoughGold(unitName, aIResources))
+        {
+            GameObject unit = m_UnitPool.GetSelectedUnit(unitName, 1);
+            m_Spawner.SpawnUnitAI(unit);
+        }
     }
 }

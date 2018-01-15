@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114323163266437100}
   - component: {fileID: 212202413253911658}
   m_Layer: 0
-  m_Name: CollectorYagra
+  m_Name: Collector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

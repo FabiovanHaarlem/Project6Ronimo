@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114485599221556544}
   - component: {fileID: 212459874988778064}
   m_Layer: 0
-  m_Name: RangedSelios
+  m_Name: Ranged
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

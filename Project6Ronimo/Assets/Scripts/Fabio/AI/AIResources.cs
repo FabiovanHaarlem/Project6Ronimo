@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIResources : MonoBehaviour
+public class AIResources : MonoBehaviour, IResources
 {
     [SerializeField]
     private int m_Gold;

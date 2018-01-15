@@ -5,15 +5,16 @@ using UnityEngine;
 public class SpellHolder : MonoBehaviour
 {
     private ISpell m_GivenSpell;
-	
-	void Start ()
-    {
-		
-	}
+    private Spells m_SpellValues;
 
-    public void SetSpell(ISpell spell)
+    private float m_SpellDuration;
+	
+
+    public void SetSpell(ISpell spell, Spells spellsValue)
     {
         m_GivenSpell = spell;
+        m_SpellValues = spellsValue;
+        m_SpellDuration = m_SpellValues.GetSpellDuration;
     }
 
     public void Activate()
@@ -24,10 +25,22 @@ public class SpellHolder : MonoBehaviour
     public void Deactivate()
     {
         m_GivenSpell.DeactivateSpell();
+        this.gameObject.SetActive(false);
     }
 	
 	void Update ()
     {
-        //m_GivenSpell.UpdateSpell();
+        m_SpellDuration -= Time.deltaTime;
+
+        if (m_SpellDuration <= 0f)
+        {
+            Deactivate();
+            m_SpellDuration = m_SpellValues.GetSpellDuration;
+        }
 	}
+
+    private void OnTriggerStay(Collider unit)
+    {
+        m_GivenSpell.UpdateSpell(unit);
+    }
 }

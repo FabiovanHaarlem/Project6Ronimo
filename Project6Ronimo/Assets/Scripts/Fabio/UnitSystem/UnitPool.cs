@@ -71,7 +71,7 @@ public class UnitPool : MonoBehaviour
         }
     }
 
-    public GameObject GetSelectedUnit(string unitName)
+    public GameObject GetSelectedUnit(string unitName, int side)
     {
         GameObject unit = null;
         UnitStats.UnitType unitType = unitType = UnitStats.UnitType.Collector;
@@ -95,13 +95,32 @@ public class UnitPool : MonoBehaviour
                 break;
         }
 
-        for (int i = 0; i < m_UnitPoolPlayer.Count; i++)
+
+        if (side == 0)
         {
-            if (m_UnitPoolPlayer[i].GetUnitType() == unitType)
+            for (int i = 0; i < m_UnitPoolPlayer.Count; i++)
             {
-                if (!m_UnitPoolPlayer[i].gameObject.activeInHierarchy)
+                if (m_UnitPoolPlayer[i].GetUnitType() == unitType)
                 {
-                    unit = m_UnitPoolPlayer[i].gameObject;
+                    if (!m_UnitPoolPlayer[i].gameObject.activeInHierarchy)
+                    {
+                        unit = m_UnitPoolPlayer[i].gameObject;
+                        //Set unit side to attack
+                    }
+                }
+            }
+        }
+        else if (side == 1)
+        {
+            for (int i = 0; i < m_UnitPoolAI.Count; i++)
+            {
+                if (m_UnitPoolAI[i].GetUnitType() == unitType)
+                {
+                    if (!m_UnitPoolAI[i].gameObject.activeInHierarchy)
+                    {
+                        unit = m_UnitPoolAI[i].gameObject;
+                        //Set unit side to attack
+                    }
                 }
             }
         }

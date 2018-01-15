@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114432561687590968}
   - component: {fileID: 212138503165587668}
   m_Layer: 0
-  m_Name: CollectorSelios
+  m_Name: Collector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

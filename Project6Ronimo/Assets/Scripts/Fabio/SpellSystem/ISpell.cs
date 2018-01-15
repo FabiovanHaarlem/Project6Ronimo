@@ -6,7 +6,7 @@ public interface ISpell
 {
     void ActivateSpell();
 
-    void UpdateSpell();
+    void UpdateSpell(Collider unit);
 
     void DeactivateSpell();
 }

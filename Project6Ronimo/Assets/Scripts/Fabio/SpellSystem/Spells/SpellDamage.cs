@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class YagraSpell1 : ISpell
+public class SpellDamage : ISpell
 {
     public void ActivateSpell()
     {
 
     }
 
-    public void UpdateSpell()
+    public void UpdateSpell(Collider unit)
     {
-
+        //In class UnitStats roep aan TakeDamage();
     }
 
     public void DeactivateSpell()
     {
 
     }
+
 }

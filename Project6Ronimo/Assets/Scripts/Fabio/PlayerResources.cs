@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerResources : MonoBehaviour
+public class PlayerResources : MonoBehaviour, IResources
 {
     private int m_Gold;
     private int m_ManaPool;
