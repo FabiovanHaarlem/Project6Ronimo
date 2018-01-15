@@ -90,4 +90,14 @@ public class UnitStats : MonoBehaviour
     {
         return m_animator;
     }
+
+    void TakeDamage(int amountofdamage)
+    {
+        m_health = m_health - amountofdamage;
+    }
+
+    void Heal(int amountofheal)
+    {
+        m_health = m_health + amountofheal;
+    }
 }
