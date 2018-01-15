@@ -84,16 +84,16 @@ namespace SimpleEasing2D
             m_durationYScale = 0;
             m_durationRotate = 0;
 
-            m_xScaleStart = m_rectTransform.rect.size.x;
-            m_yScaleStart = m_rectTransform.rect.size.y;
-            m_zRotateStart = m_rectTransform.rotation.z;
+            m_xScaleStart = transform.localScale.x;
+            m_yScaleStart = transform.localScale.y;
+            m_zRotateStart = transform.eulerAngles.z;
 
             m_xScaleChange = 0;
             m_yScaleChange = 0;
             m_zRotateChange = 0;
 
-            m_currentXScale = m_rectTransform.rect.size.x;
-            m_currentYScale = m_rectTransform.rect.size.y;
+            m_currentXScale = transform.localScale.x;
+            m_currentYScale = transform.localScale.y;
             m_currentZRotate = transform.eulerAngles.z;
         }
 
@@ -158,8 +158,8 @@ namespace SimpleEasing2D
 
 
             // Apply the new values
-            m_rectTransform.localScale = new Vector3(m_currentXScale, m_currentYScale, transform.localScale.z);
-            m_rectTransform.localEulerAngles = new Vector3(0, 0, m_currentZRotate);
+            transform.localScale = new Vector3(m_currentXScale, m_currentYScale, transform.localScale.z);
+            transform.localEulerAngles = new Vector3(0, 0, m_currentZRotate);
 
 
 
