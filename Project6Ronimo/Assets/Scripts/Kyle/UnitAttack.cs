@@ -19,7 +19,7 @@ public class UnitAttack : MonoBehaviour
         }
 	}
 
-    public void DoDamage(Collision2D attackingobject)
+    public void DoDamage(Collider2D attackingobject)
     {
         attackingobject.gameObject.GetComponent<UnitAttack>().TakeDamage(m_stats.m_damage);
     }
