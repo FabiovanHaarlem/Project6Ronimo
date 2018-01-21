@@ -17,6 +17,11 @@ public class PlayerResources : MonoBehaviour, IResources
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F6))
+        {
+            AddGold(100);
+        }
+
         m_ManaRechargeSpeed -= Time.deltaTime;
 
         if (m_ManaRechargeSpeed <= 0f)

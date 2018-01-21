@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
         m_PlayerFaction = PlayerFactionEnum.Yagra;
         m_SpellPool = GameObject.Find("_System").GetComponent<SpellPool>();
         m_SpellPool.SetSpells();
+        //m_PlayerFaction = factionButton.Faction;
     }
 
     public PlayerFactionEnum GetPlayersFaction()

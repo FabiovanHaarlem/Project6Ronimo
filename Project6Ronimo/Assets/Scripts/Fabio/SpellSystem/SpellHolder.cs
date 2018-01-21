@@ -41,6 +41,7 @@ public class SpellHolder : MonoBehaviour
 
     private void OnTriggerStay(Collider unit)
     {
+        Collider[] colliders = Physics.OverlapBox(transform.position, new Vector2(2f, 1f), transform.rotation);
         m_GivenSpell.UpdateSpell(unit);
     }
 }
