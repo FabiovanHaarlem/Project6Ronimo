@@ -11,7 +11,7 @@ public class SpellHeal : ISpell
 
     public void UpdateSpell(Collider unit)
     {
-        //In class UnitStats roep aan Heal();
+        unit.GetComponent<UnitStats>().Heal(5);
     }
 
     public void DeactivateSpell()
