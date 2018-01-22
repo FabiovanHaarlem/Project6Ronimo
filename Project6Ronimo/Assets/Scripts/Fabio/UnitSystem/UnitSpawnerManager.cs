@@ -5,9 +5,9 @@ using UnityEngine;
 public class UnitSpawnerManager : MonoBehaviour
 {
     [SerializeField]
-    private Vector3 m_PlayerBasePosition;
+    private Transform m_PlayerBasePosition;
     [SerializeField]
-    private Vector3 m_AIBasePosition;
+    private Transform m_AIBasePosition;
 
     private List<GameObject> m_PlayerUnits;
     public List<GameObject> GetPlayerUnitsList
@@ -25,12 +25,12 @@ public class UnitSpawnerManager : MonoBehaviour
     public void SpawnUnit(GameObject unit)
     {
         unit.SetActive(true);
-        unit.transform.position = m_PlayerBasePosition;
+        unit.transform.position = m_PlayerBasePosition.position;
     }
 
     public void SpawnUnitAI(GameObject unit)
     {
         unit.SetActive(true);
-        unit.transform.position = m_AIBasePosition;
+        unit.transform.position = m_AIBasePosition.position;
     }
 }

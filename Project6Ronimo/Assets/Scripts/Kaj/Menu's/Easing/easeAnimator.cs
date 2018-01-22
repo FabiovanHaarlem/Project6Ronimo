@@ -4,8 +4,11 @@ using UnityEngine;
 
 namespace SimpleEasing2D
 {
+    [RequireComponent(typeof(RectTransform))]
     public class easeAnimator : MonoBehaviour
     {
+        private RectTransform m_rectTransform;
+
         public enum EasingTypes
         {
             easeInBack,
@@ -71,6 +74,8 @@ namespace SimpleEasing2D
 
         private void Awake()
         {
+            m_rectTransform = GetComponent<RectTransform>();
+
             m_timerXScale = 0;
             m_timerYScale = 0;
             m_timerRotate = 0;
@@ -154,7 +159,9 @@ namespace SimpleEasing2D
 
             // Apply the new values
             transform.localScale = new Vector3(m_currentXScale, m_currentYScale, transform.localScale.z);
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, m_currentZRotate);
+            transform.localEulerAngles = new Vector3(0, 0, m_currentZRotate);
+
+
 
         }
 

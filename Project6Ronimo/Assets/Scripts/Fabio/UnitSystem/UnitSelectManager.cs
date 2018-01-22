@@ -77,7 +77,18 @@ public class UnitSelectManager : MonoBehaviour
         if (CheckIfEnoughGold(unitName, m_PlayerResources))
         {
             GameObject unit = m_UnitPool.GetSelectedUnit(unitName, 0);
+            unit.tag = "Player";
             m_Spawner.SpawnUnit(unit);
+        }
+    }
+
+    public void SpawnAIUnit(string unitName, IResources aIResources)
+    {
+        if (CheckIfEnoughGold(unitName, aIResources))
+        {
+            GameObject unit = m_UnitPool.GetSelectedUnit(unitName, 1);
+            unit.tag = "AI";
+            m_Spawner.SpawnUnitAI(unit);
         }
     }
 
@@ -157,14 +168,5 @@ public class UnitSelectManager : MonoBehaviour
 
         m_SelectableSymbols.transform.position = m_Canvas.gameObject.transform.TransformPoint(pos);
         m_UpradesGroup.SetActive(false);
-    }
-
-    public void SpawnAIUnit(string unitName, IResources aIResources)
-    {
-        if (CheckIfEnoughGold(unitName, aIResources))
-        {
-            GameObject unit = m_UnitPool.GetSelectedUnit(unitName, 1);
-            m_Spawner.SpawnUnitAI(unit);
-        }
     }
 }
